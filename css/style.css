@@ -92,6 +92,24 @@ img{
     grid-row: 1 / span 1;
 }
 
+.last_box{
+    margin-top: 4%;
+    background: radial-gradient(#eddac5, #fff0f5);
+        /* source for learning radial gradient: https://www.w3schools.com/css/css3_gradients_radial.asp  */
+    color: #00274c;
+    padding: 3%;
+    padding-top: 2%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.last_box h1{
+    margin-bottom: 2%;
+}
+
+#past_last_box{
+    border: solid 3px #0e6aab;
+}
+
 /* skip to main */
 .skip{
     top: -60px; 
@@ -232,6 +250,11 @@ footer{
     text-align: center;
 }
 
+/* sets up for reduced motion query later */
+.container-back-reduced-motion{
+    visibility:hidden;
+}
+
 #location{
     padding-bottom: 4%;
 }
@@ -281,6 +304,15 @@ footer{
 #contact p{
     padding-top: 2%;
     padding-bottom: 2%;
+}
+
+#contact{
+    transition: transform 0.4s ease;
+    transform-style: preserve-3d;
+}
+
+#contact:hover{
+    transform: rotateX(11deg) rotateY(11deg);
 }
 
 /* DESKTOP VIEW */
@@ -355,7 +387,19 @@ footer{
 
 @media (prefers-reduced-motion: reduce){
     
-    .container{
+    .container, #contact{
         transition: none; 
+        transform: translateX(0);
     }
+
+    .container:hover, #contact:hover, #kerrytown_intro:hover .container-inner{
+        transition: none; 
+        transform:translateX(0);
+    }
+
+    .container-back-reduced-motion{
+        visibility:visible;
+        padding-top: 2%;
+    }
+
 }
